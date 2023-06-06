@@ -1,11 +1,12 @@
 import express, { Application } from "express";
 import { handleErrors } from "./error";
 import "express-async-errors";
+import { carsRoutes } from "./routes";
 
 const app: Application = express();
 app.use(express.json());
 
-/*app.use() routes here*/
+app.use("/cars", carsRoutes);
 
 app.use(handleErrors);
 

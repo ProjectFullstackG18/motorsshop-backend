@@ -2,12 +2,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 
 @Entity("Cars")
-class Cars {
+class Car {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -46,6 +49,23 @@ class Cars {
 
   @Column()
   is_active: Boolean;
+
+  @OneToMany(() => Image, (image) => image.car)
+  @JoinColumn()
+  images: Image[];
 }
 
-export { Cars };
+@Entity("Images")
+class Image {
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
+
+  @Column({ type: "text" })
+  URL: string;
+
+  @ManyToOne(() => Car, { onDelete: "CASCADE" })
+  @JoinColumn()
+  car: Car;
+}
+
+export { Car, Image };
