@@ -1,3 +1,3 @@
-import { Cars } from "./cars/cars.entity";
+import { Car, Image } from "./cars/cars.entity";
 
-export { Cars };
+export { Car, Image };
