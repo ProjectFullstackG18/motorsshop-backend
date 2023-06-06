@@ -6,10 +6,11 @@ import {
   retrieveCarController,
   updateCarController,
 } from "../controllers/cars.controller";
+import verifyUserSaler from "../middlewares/verifyUserSaler.middleware";
 
 export const carsRoutes: Router = Router();
 
-carsRoutes.post("", createCarController);
+carsRoutes.post("", verifyUserSaler, createCarController);
 carsRoutes.get("/:id", retrieveCarController);
 carsRoutes.get("", listCarController);
 carsRoutes.patch("/:id", updateCarController);
