@@ -8,6 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from "../user/user.entity";
 
 @Entity("Cars")
 class Car {
