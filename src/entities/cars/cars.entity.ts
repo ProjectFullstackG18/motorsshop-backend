@@ -54,6 +54,9 @@ class Car {
   @OneToMany(() => Image, (image) => image.car)
   @JoinColumn()
   images: Image[];
+
+  @ManyToOne(() => User, (user) => user.cars, { onDelete: "CASCADE" })
+  user: User[];
 }
 
 @Entity("Images")
