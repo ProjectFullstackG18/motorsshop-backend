@@ -1,12 +1,13 @@
-import { userSchema, returnUserSchema} from "../../schemas/users.schema";
+import { userSchema, returnUserSchema, returnAllUsersSchema} from "../../schemas/users.schema";
 import { z } from "zod";
 import { DeepPartial } from "typeorm";
 
 type IUser = z.infer<typeof userSchema>;
 type IUserReturn = z.infer<typeof returnUserSchema>;
+type IUserReturnArray = z.infer<typeof returnAllUsersSchema>;
 type IUserUpdate = DeepPartial<IUser>;
 
-export { IUser, IUserReturn, IUserUpdate };
+export { IUser, IUserReturn, IUserUpdate, IUserReturnArray };
 
 
 

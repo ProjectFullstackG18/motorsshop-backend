@@ -16,7 +16,8 @@ const verifyAuthUser = (req: Request, res: Response, next: NextFunction) => {
     jwt.verify(token, process.env.SECRET_KEY as string, (err, decoded: any) => {
       req.user = {
         id: decoded.sub,
-        saler: decoded.saler,
+        seller: decoded.seller,
+        email: decoded.email
       };
 
       next();

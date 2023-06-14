@@ -5,7 +5,7 @@ const verifyUserSaler = async (
   res: Response,
   next: NextFunction
 ) => {
-  const saler = req.user.saler;
+  const saler = req.user.seller;
 
   if (saler) {
     next();

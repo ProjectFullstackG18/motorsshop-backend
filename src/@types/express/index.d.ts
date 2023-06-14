@@ -5,7 +5,8 @@ declare global {
     interface Request {
       user: {
         id: string;
-        saler: boolean;
+        seller: boolean;
+        email: string;
       };
       carsUpdate: {
         brand?: string;

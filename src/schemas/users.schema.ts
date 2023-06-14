@@ -27,4 +27,6 @@ const returnUserSchema = userSchema
   })
   .omit({ password: true });
 
-  export {userSchema, userUpdateSchema, returnUserSchema}
+  const returnAllUsersSchema = returnUserSchema.array();
+
+  export {userSchema, userUpdateSchema, returnUserSchema, returnAllUsersSchema}
