@@ -14,7 +14,9 @@ export const createCarController = async (
 ): Promise<Response> => {
   const carData = req.body;
 
-  const newCar = await createCarService(carData);
+  const userId = req.user.id;
+
+  const newCar = await createCarService(carData, userId);
   return res.status(201).json(newCar);
 };
 

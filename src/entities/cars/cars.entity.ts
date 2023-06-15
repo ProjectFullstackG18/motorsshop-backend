@@ -56,7 +56,7 @@ class Car {
   images: Image[];
 
   @ManyToOne(() => User, (user) => user.cars, { onDelete: "CASCADE" })
-  user: User[];
+  user: User;
 }
 
 @Entity("Images")
