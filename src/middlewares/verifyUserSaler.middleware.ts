@@ -7,8 +7,10 @@ const verifyUserSaler = async (
 ) => {
   const saler = req.user.seller;
 
+  console.log;
+
   if (saler) {
-    next();
+    return next();
   }
 
   return res.status(401).json({ message: "User is not Saler" });
