@@ -8,6 +8,17 @@ import { loginRoutes } from "./routes/login.routes";
 const app: Application = express();
 app.use(express.json());
 
+const cors = require("cors");
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  next();
+});
+
+app.use(cors());
+
 app.use("/users", userRoutes);
 app.use("/login", loginRoutes);
 app.use("/cars", carsRoutes);
