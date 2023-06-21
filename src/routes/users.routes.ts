@@ -5,6 +5,8 @@ import {
   edituserController,
   getAllUsersController,
   getUserByIdController,
+  resetPassword,
+  sendEmailResetPassword,
 } from "../controllers/users.controller";
 import verifyAuthUser from "../middlewares/verifyAuthUser.middleware";
 import { verifyDataIsValidMiddleware } from "../middlewares/verifyDataIsValide.middleware";
@@ -23,4 +25,6 @@ userRoutes.patch(
 );
 userRoutes.delete("/:id", verifyAuthUser, deleteUserController);
 
+userRoutes.post("/resetPassword", sendEmailResetPassword);
+userRoutes.patch("/resetPassword/:token", resetPassword);
 export { userRoutes };

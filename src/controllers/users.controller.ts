@@ -9,6 +9,10 @@ import { getAllUsersServices } from "../services/users/getAllUsers.service";
 import { editUserServices } from "../services/users/editUser.service";
 import { deleteUserServices } from "../services/users/delete.user.service";
 import { getUserByIdServices } from "../services/users/getUserById.service";
+import {
+  resetPasswordService,
+  sendEmailResetPasswordService,
+} from "../services/users/sendEmail.user.service";
 
 const createUserController = async (
   req: Request,
@@ -34,7 +38,6 @@ export const getUserByIdController = async (
   res: Response
 ): Promise<Response> => {
   const userId: string = req.user.id;
-
   const user = await getUserByIdServices(userId);
   return res.status(200).json(user);
 };
@@ -67,9 +70,27 @@ const deleteUserController = async (
   return res.status(204).send();
 };
 
+const sendEmailResetPassword = async (req: Request, res: Response) => {
+  const { email } = req.body;
+
+  await sendEmailResetPasswordService(email);
+
+  return res.json({ message: "token send!" });
+};
+
+const resetPassword = async (req: Request, res: Response) => {
+  const { password } = req.body;
+  const { token } = req.params;
+
+  await resetPasswordService(password, token);
+  return res.json({ message: "Password change with sucess!" });
+};
+
 export {
   createUserController,
   getAllUsersController,
   edituserController,
   deleteUserController,
+  sendEmailResetPassword,
+  resetPassword,
 };
