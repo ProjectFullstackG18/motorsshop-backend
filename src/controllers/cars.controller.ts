@@ -6,7 +6,7 @@ import {
   retrieveCarService,
   updateCarService,
 } from "../services";
-import { Car } from "../entities";
+import { listSellerCarsService } from "../services/cars/list.cars.sellers.service";
 
 export const createCarController = async (
   req: Request,
@@ -33,7 +33,6 @@ export const listCarController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const carId: string = req.params.id;
   const car = await listCarService();
 
   return res.status(200).json(car);
@@ -56,4 +55,13 @@ export const destroyCarController = async (
   const carId = req.params.id;
   await destroyCarService(carId);
   return res.status(204).json();
+};
+
+export const listSellerCarsController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const sellerId = req.params.id;
+  const sellerCars = await listSellerCarsService(sellerId);
+  return res.status(200).json(sellerCars);
 };
