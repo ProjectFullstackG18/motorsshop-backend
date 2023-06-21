@@ -64,6 +64,9 @@ class User {
   @UpdateDateColumn({ type: "date" })
   updatedAt: string;
 
+  @Column({type: "varchar", nullable: true})
+  resettoken?: string | null | undefined;
+
   @BeforeInsert()
   @BeforeUpdate()
   hashPassword() {
