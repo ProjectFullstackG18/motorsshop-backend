@@ -6,8 +6,12 @@ export const listCarService = async (): Promise<Car[]> => {
   const carsRepo: Repository<Car> = AppDataSource.getRepository(Car);
 
   const carReturn: Car[] = await carsRepo.find({
+    where: {
+      is_active: true,
+    },
     relations: {
       images: true,
+      user: true,
     },
   });
 
