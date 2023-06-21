@@ -15,6 +15,7 @@ const userSchema = z.object({
   complement: z.string().nullish().optional(),
   seller: z.boolean(),
   password: z.string().max(150),
+  resettoken: z.string().nullish().optional()
 });
 
 const userUpdateSchema = userSchema.partial();
