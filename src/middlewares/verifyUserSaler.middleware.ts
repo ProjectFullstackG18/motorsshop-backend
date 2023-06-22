@@ -7,6 +7,8 @@ const verifyUserSaler = async (
 ) => {
   const saler = req.user.seller;
 
+  console.log;
+
   if (saler) {
     return next();
   }
