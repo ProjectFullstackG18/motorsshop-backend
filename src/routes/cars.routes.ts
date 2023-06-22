@@ -3,6 +3,7 @@ import {
   createCarController,
   destroyCarController,
   listCarController,
+  listSellerCarsController,
   retrieveCarController,
   updateCarController,
 } from "../controllers/cars.controller";
@@ -15,7 +16,7 @@ import verifyAuthUser from "../middlewares/verifyAuthUser.middleware";
 export const carsRoutes: Router = Router();
 
 carsRoutes.post("", verifyAuthUser, verifyUserSaler, createCarController);
-carsRoutes.get("/:id", retrieveCarController);
+carsRoutes.get("/seller/:id", listSellerCarsController);
 carsRoutes.get("", listCarController);
 carsRoutes.patch(
   "/:id",
