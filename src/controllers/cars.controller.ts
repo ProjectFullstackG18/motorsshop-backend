@@ -33,7 +33,9 @@ export const listCarController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const car = await listCarService();
+  const queryParams = req.query;
+
+  const car = await listCarService(queryParams);
 
   return res.status(200).json(car);
 };
