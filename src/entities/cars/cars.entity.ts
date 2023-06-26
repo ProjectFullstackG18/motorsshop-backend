@@ -27,7 +27,7 @@ class Car {
   @Column({ length: 60 })
   fuel_type: string;
 
-  @Column({ length: 8 })
+  @Column({ type: "int" })
   km: string;
 
   @Column({ length: 60 })
@@ -36,7 +36,7 @@ class Car {
   @Column({ length: 60 })
   fipe_price: string;
 
-  @Column({ length: 60 })
+  @Column({ type: "float", precision: 10, scale: 2 })
   price: string;
 
   @Column({ nullable: true })
