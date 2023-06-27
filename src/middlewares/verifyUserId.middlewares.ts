@@ -1,20 +1,21 @@
 import { Request, Response, NextFunction } from "express";
+import { AppDataSource } from "../data-source";
+import { User } from "../entities";
+import { Repository } from "typeorm";
+import { AppError } from "../error";
 
-const verifyUserId = async (
+export const verifyUserId = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const idCarParam = req.params.id;
+  const userId = req.params.id;
 
-  const idOwenerCar = "";
-
-  const idUser = req.user.id;
-
-  if (idOwenerCar == idUser) {
-    next();
-  } else {
-    return res.status(403).json({ message: "unauthorized" });
+  const usersRepo: Repository<User> = AppDataSource.getRepository(User);
+  const exist: boolean = await usersRepo.exist({ where: { id: userId } });
+  if (exist) {
+    return next();
   }
+
+  throw new AppError("User not found", 404);
 };
-export default verifyUserId;

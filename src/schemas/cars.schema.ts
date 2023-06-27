@@ -33,4 +33,42 @@ const updateCarsSchema = z.object({
   images: z.array(z.string()),
 });
 
-export { carsSchema, returnCarsSchema, updateCarsSchema };
+const userSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+  seller: z.boolean(),
+});
+
+const imageSchema = z.object({
+  id: z.string(),
+  URL: z.string().url(),
+});
+
+const commentSchema = z.object({
+  id: z.string(),
+  comment: z.string(),
+  created_at: z.any(),
+  user: userSchema,
+});
+
+const carSchema = z.object({
+  id: z.string(),
+  brand: z.string(),
+  model: z.string(),
+  year: z.string(),
+  fuel_type: z.string(),
+  km: z.number(),
+  color: z.string(),
+  fipe_price: z.string(),
+  price: z.number(),
+  description: z.string(),
+  created_at: z.any(),
+  updated_at: z.any(),
+  is_active: z.boolean(),
+  images: z.array(imageSchema),
+  user: userSchema,
+  comments: z.array(commentSchema),
+});
+
+export default carSchema;
