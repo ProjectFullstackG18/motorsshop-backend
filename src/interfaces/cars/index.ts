@@ -1,3 +1,6 @@
+import { z } from "zod";
+import carRetrieveSchema from "../../schemas/cars.schema";
+
 interface ICarsUpdate {
   brand?: string;
   model?: string;
@@ -10,4 +13,6 @@ interface ICarsUpdate {
   description?: string;
 }
 
-export { ICarsUpdate };
+export { ICarsUpdate, ICarRetrieve };
+
+type ICarRetrieve = z.infer<typeof carRetrieveSchema>;

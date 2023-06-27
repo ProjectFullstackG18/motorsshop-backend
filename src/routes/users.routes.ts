@@ -3,7 +3,6 @@ import {
   createUserController,
   deleteUserController,
   edituserController,
-  getAllUsersController,
   getUserByIdController,
   resetPassword,
   sendEmailResetPassword,
@@ -15,7 +14,6 @@ import { userUpdateSchema } from "../schemas/users.schema";
 const userRoutes: Router = Router();
 
 userRoutes.post("", createUserController);
-// userRoutes.get("", getAllUsersController);
 userRoutes.get("", verifyAuthUser, getUserByIdController);
 userRoutes.patch(
   "/:id",
