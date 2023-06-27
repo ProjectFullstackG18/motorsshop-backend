@@ -15,6 +15,5 @@ export const retrieveCarService = async (
     },
     relations: ["images", "user", "comments", "comments.user"],
   });
-  console.log(carReturn);
   return carRetrieveSchema.parse(carReturn);
 };
