@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { User } from "../user/user.entity";
+import { Comment } from "../comments/comments.entity";
 
 @Entity("Cars")
 class Car {
@@ -54,6 +55,10 @@ class Car {
   @OneToMany(() => Image, (image) => image.car)
   @JoinColumn()
   images: Image[];
+
+  @OneToMany(() => Comment, (comment) => comment.car)
+  @JoinColumn()
+  comments: Comment[];
 
   @ManyToOne(() => User, (user) => user.cars, { onDelete: "CASCADE" })
   user: User;
