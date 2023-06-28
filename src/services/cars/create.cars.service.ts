@@ -11,13 +11,11 @@ export const createCarService = async (
   const userRepo: Repository<User> = AppDataSource.getRepository(User);
 
   const { images, ...newCar } = newCarData;
-
   const seller = await userRepo.findOne({
     where: {
       id: userId,
     },
   });
-
   const queryCar: Car = carsRepo.create({ ...newCar, user: seller } as Car);
 
   const car = await carsRepo.save(queryCar);
