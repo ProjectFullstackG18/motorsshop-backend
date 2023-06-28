@@ -47,7 +47,9 @@ export const listCarService = async (
   }
 
   if (queryParams.fuel_type) {
-    queryBuilder.andWhere("car.year = :year", { year: queryParams.year });
+    queryBuilder.andWhere("LOWER(car.fuel_type) = :fuel_type", {
+      fuel_type: queryParams.fuel_type.toLowerCase(),
+    });
   }
 
   if (queryParams.max_price !== undefined) {
