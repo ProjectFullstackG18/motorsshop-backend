@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const carsSchema = z.object({
+export const carsSchema = z.object({
   brand: z.string().max(30),
   model: z.string().max(60),
   year: z.string().max(4),

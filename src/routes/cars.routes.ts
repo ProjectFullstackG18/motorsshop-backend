@@ -8,7 +8,7 @@ import {
   updateCarController,
 } from "../controllers/cars.controller";
 import verifyUserSaler from "../middlewares/verifyUserSaler.middleware";
-import carsSchema from "../schemas/cars.schema";
+import { carsSchema } from "../schemas/cars.schema";
 import verifyAuthUser from "../middlewares/verifyAuthUser.middleware";
 import { verifyDataIsValidMiddleware } from "../middlewares/verifyDataIsValide.middleware";
 import { verifyObjPermission } from "../middlewares/verifyObjPermission.middleware";
