@@ -17,7 +17,7 @@ const verifyAuthUser = (req: Request, res: Response, next: NextFunction) => {
       req.user = {
         id: decoded.sub,
         seller: decoded.seller,
-        email: decoded.email
+        email: decoded.email,
       };
 
       next();

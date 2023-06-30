@@ -1,4 +1,4 @@
-import { DeepPartial, Repository } from "typeorm";
+import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { Car, Image } from "../../entities";
 
