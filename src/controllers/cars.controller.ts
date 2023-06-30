@@ -7,7 +7,6 @@ import {
   updateCarService,
 } from "../services";
 import { listSellerCarsService } from "../services/cars/list.cars.sellers.service";
-import { createCommentService } from "../services/comments/create.comments.service";
 
 export const createCarController = async (
   req: Request,

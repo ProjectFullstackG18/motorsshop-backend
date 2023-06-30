@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class InitialMigration1688132082072 implements MigrationInterface {
-  name = "InitialMigration1688132082072";
+export class InitialMigration1688145281438 implements MigrationInterface {
+  name = "InitialMigration1688145281438";
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
@@ -49,4 +49,3 @@ export class InitialMigration1688132082072 implements MigrationInterface {
     await queryRunner.query(`DROP TABLE "users"`);
   }
 }
-

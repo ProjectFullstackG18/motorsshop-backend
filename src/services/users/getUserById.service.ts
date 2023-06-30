@@ -9,10 +9,9 @@ const getUserByIdServices = async (userId: string): Promise<IUser> => {
     where: {
       id: userId,
     },
-    relations: ["cars", "cars.images"], // Incluindo as relações "cars" e "cars.images"
+    relations: ["cars", "cars.images"],
   });
-  //   const returnUser: IUser = returnAllUsersSchema.parse(getUser);
-  console.log(getUser);
+
   return getUser!;
 };
 
