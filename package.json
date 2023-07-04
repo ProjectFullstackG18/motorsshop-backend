@@ -7,7 +7,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules --cls --rs src/server.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "migration:prod": "npm run typeorm migration:run -d ./dist/data-source"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -18,7 +21,7 @@
     "@types/nodemailer": "^6.4.8",
     "@types/pg": "^8.6.6",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
