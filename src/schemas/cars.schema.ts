@@ -38,6 +38,7 @@ const userSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   seller: z.boolean(),
+  phone: z.string(),
 });
 
 const imageSchema = z.object({

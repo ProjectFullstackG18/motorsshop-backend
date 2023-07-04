@@ -5,15 +5,15 @@ import carRetrieveSchema from "../../schemas/cars.schema";
 import { ICarRetrieve } from "../../interfaces/cars";
 
 export const retrieveCarService = async (
-  carId: string
+    carId: string
 ): Promise<ICarRetrieve> => {
-  const carsRepo: Repository<Car> = AppDataSource.getRepository(Car);
+    const carsRepo: Repository<Car> = AppDataSource.getRepository(Car);
 
-  const carReturn: Car = await carsRepo.findOneOrFail({
-    where: {
-      id: carId,
-    },
-    relations: ["images", "user", "comments", "comments.user"],
-  });
-  return carRetrieveSchema.parse(carReturn);
+    const carReturn: Car = await carsRepo.findOneOrFail({
+        where: {
+            id: carId,
+        },
+        relations: ["images", "user", "comments", "comments.user"],
+    });
+    return carRetrieveSchema.parse(carReturn);
 };
