@@ -10,7 +10,7 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "build": "tsc",
     "start": "node dist/server.js",
-    "migration:prod": "npm run typeorm migration:run -d ./dist/data-source"
+    "migration:prod": "yarn typeorm migration:run -d dist/data-source"
   },
   "devDependencies": {},
   "dependencies": {
