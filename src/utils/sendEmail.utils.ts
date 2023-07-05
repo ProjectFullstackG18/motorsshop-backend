@@ -38,7 +38,7 @@ class EmailService {
       theme: "default",
       product: {
         name: "Motorsshop",
-        link: "https://localhost:3000/seller",
+        link: "https://motorsshop-frontend-ebon.vercel.app/seller",
       },
     });
 
@@ -52,7 +52,7 @@ class EmailService {
           button: {
             color: "#DC4D2F",
             text: "Reset your password",
-            link: `http://localhost:3001/resetPassword/${resetToken}`,
+            link: `https://motorsshop-frontend-ebon.vercel.app/resetPassword/${resetToken}`,
           },
         },
         outro:
