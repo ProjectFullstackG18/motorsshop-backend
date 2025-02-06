@@ -1154,10 +1154,8 @@ Content-type: application/json
 
 ## MADE WITH ❤️ BY:
 
+- [Marcio Calenzo](https://github.com/MarcioCalenzo)
 - [João Vitor Meira](https://github.com/jvnagos21)
-- [Márcio Calenzo](https://github.com/MarcioCalenzo)
 - [Matheus Dávila](https://github.com/drmatheus)
 - [Emanuel Luiz](https://github.com/emanuelluiz01)
 - [Eduardo Portela](https://github.com/Eduardo-Portela)
-
-- Product owner [Paulo Mello](https://github.com/paulomellokenzie)
